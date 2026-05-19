@@ -5,15 +5,36 @@ This python program can be used to generate a "WordCloud" image from the given `
 - [x] Application to generate WordCloud
 - [x] Creating container image for the app
 - [ ] TODO: Upload the file wordcloud.png to GitHub or Cloud Storage
-- [ ] TODO: Pass text as input argument to the script
+- [x] Pass text as input argument to the script
+
+## Possible Enhancements
+- Upload generated images directly to cloud storage (GCS/S3/Azure Blob) via optional flags.
+- Add support for custom font, color map, and stopwords through CLI options.
+- Add CI checks for linting + script execution on pull requests.
+- Add automated tests for argument parsing and file output generation.
+- Add API mode (Flask/FastAPI) to generate word clouds via HTTP requests.
 
 ## Executing the Script
 ### Method 1
-- Add the input text in the variable `sample_text`
-- Run below command to execute the program,
+- Run below command to execute the program with default sample text:
 ```
 python3 -m pip install -r requirements.txt
-python3 show_wordcloud.py 
+python3 show_wordcloud.py
+```
+
+- Pass inline text:
+```
+python3 show_wordcloud.py --text "GitHub Actions GitHub Packages Protected branches"
+```
+
+- Pass text from a file:
+```
+python3 show_wordcloud.py --text-file /path/to/input.txt --output /path/to/wordcloud.png
+```
+
+- You can also set a custom output file:
+```
+python3 show_wordcloud.py --text "example text" --output mycloud.png
 ```
 
 ### Method 2
